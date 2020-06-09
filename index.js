@@ -120,9 +120,9 @@ let variableInterestRate = function(p, i, n){
     
     for(let range = 0; range < 10; range++){
         rate = (mortgageCalculatorTwo( p, i, n));
-        console.log(name + ", with an interest rate of " i + ", your monthly rate is $" + rate);
+        console.log(name + ", with an interest rate of " + i + ", your monthly rate is $" + rate);
         i = (i + 0.005);
-}
+}}
 console.log(variableInterestRate(200000, 0.04, 30));
 
 // 🌟🌟🌟 STRETCH 🌟🌟🌟//
