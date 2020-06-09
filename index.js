@@ -117,7 +117,7 @@ For example, variableInterestRate(200000, 0.04, 30) should console.log:
 
 let variableInterestRate = function(p, i, n){
     i = (i - .02);
-    
+    let rate;
     for(let range = 0; range < 10; range++){
         rate = (mortgageCalculatorTwo( p, i, n));
         console.log(name + ", with an interest rate of " + i + ", your monthly rate is $" + rate);
