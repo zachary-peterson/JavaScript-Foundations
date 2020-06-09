@@ -4,7 +4,11 @@
 /* Create variables for principal, interest rate, and years. Assign them the values 200000, 0.05, and 30 respectively. Create another value called name and give it the value of your own name.
 */
 
+let principal = 200000;
+let interestRate = 0.05;
+let years = 30;
 
+const name = 'Zachary'; 
 
 
 
@@ -15,6 +19,8 @@
 (2) Create another variable called `periods` and give it the value of years*12.
 */
 
+let monthlyInterestRate = interestRate / 12;
+let periods = years * 12;
 
 
 
@@ -36,6 +42,7 @@ Hint #2: you'll need to use the `math` object for parts of this calculation!
 When your math is correct, monthlyRate will equal 1073.64
 */
 
+let monthlyRate = principal * (monthlyInterestRate * Math.pow(1 + monthlyInterestRate, periods)) / (Math.pow(1 + monthlyInterestRate, periods) - 1);
 
 
 
@@ -45,9 +52,11 @@ When your math is correct, monthlyRate will equal 1073.64
 If your name is `Oscar` mortgageCalculator() should return "Oscar, your monthly rate is 1073.64"
 */
 
+let mortgageCalculator = function(name, monthlyRate){
+    console.log(name + ', your monthly rate is ' + monthlyRate)
+}
 
-
-
+// mortgageCalculator(name, monthlyRate);
 
 // 🏡 Task 4: Arguments and Parameters
 /* Substitute the variables in your functions for parameters such that you can substitute `P`, `I`, and `N` when you call the function.
@@ -56,8 +65,13 @@ For example,
 mortgageCalculator(200000, 0.05, 30); <-- should return 1,073.64
 */
 
+let mortgageCalculator1 = function(p, i, n){
+    let m = i / 12; 
+    let o = n * 12; 
+    console.log(p * (m * Math.pow(1 + m, o)) / (Math.pow(1 + m, o) - 1));
+}
 
-
+mortgageCalculator1(200000, 0.05, 30);
 
 
 // 🏡 Task 5: Conditionals
