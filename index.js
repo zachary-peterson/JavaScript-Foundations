@@ -53,7 +53,7 @@ If your name is `Oscar` mortgageCalculator() should return "Oscar, your monthly 
 */
 
 let mortgageCalculator = function(name, monthlyRate){
-    console.log(name + ', your monthly rate is ' + monthlyRate)
+    console.log(`${name}, your monthly rate is ${monthlyRate}`)
 }
 
 mortgageCalculator(name, monthlyRate);
@@ -124,7 +124,7 @@ const variableInterestRate = function(p, i, n){
     let rate = mortgageCalculatorTwo( p, i, n);
     for(let range = 0; range < 10; range++){
         rate = (Math.round(mortgageCalculatorTwo( p, i, n)));
-        console.log(name + ", with an interest rate of " + i + ", your monthly rate is $" + rate);
+        console.log(`${name}, with an interest rate of ${i}, your monthly rate is $${rate}`);
         i = (Math.round((i + 0.005) *1000) / 1000);
 }}
 variableInterestRate(200000, 0.04, 30);
