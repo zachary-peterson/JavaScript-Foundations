@@ -71,7 +71,7 @@ let mortgageCalculatorTwo = function(p, i, n){
     return(Math.round(p * (m * Math.pow(1 + m, o)) / (Math.pow(1 + m, o) - 1) * 100) / 100);
 }
 
-mortgageCalculatorTwo(200000, 0.05, 30);
+console.log(mortgageCalculatorTwo(200000, 0.05, 30));
 
 
 // 🏡 Task 5: Conditionals
@@ -124,10 +124,10 @@ const variableInterestRate = function(p, i, n){
     let rate = mortgageCalculatorTwo( p, i, n);
     for(let range = 0; range < 10; range++){
         rate = (Math.round(mortgageCalculatorTwo( p, i, n)));
-        console.log(name + ", with an interest rate of " + i + ", your monthly rate is " + rate);
+        console.log(name + ", with an interest rate of " + i + ", your monthly rate is $" + rate);
         i = (Math.round((i + 0.005) *1000) / 1000);
 }}
-console.log(variableInterestRate(200000, 0.04, 30));
+variableInterestRate(200000, 0.04, 30);
 
 // 🌟🌟🌟 STRETCH 🌟🌟🌟//
 
