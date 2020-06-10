@@ -4,7 +4,11 @@
 /* Create variables for principal, interest rate, and years. Assign them the values 200000, 0.05, and 30 respectively. Create another value called name and give it the value of your own name.
 */
 
+let principal = 200000;
+let interestRate = 0.05;
+let years = 30;
 
+const name = 'Zachary'; 
 
 
 
@@ -15,6 +19,8 @@
 (2) Create another variable called `periods` and give it the value of years*12.
 */
 
+let monthlyInterestRate = interestRate / 12;
+let periods = years * 12;
 
 
 
@@ -36,6 +42,7 @@ Hint #2: you'll need to use the `math` object for parts of this calculation!
 When your math is correct, monthlyRate will equal 1073.64
 */
 
+let monthlyRate = (Math.round(principal * (monthlyInterestRate * Math.pow(1 + monthlyInterestRate, periods)) / (Math.pow(1 + monthlyInterestRate, periods) - 1) * 100) / 100);
 
 
 
@@ -45,9 +52,11 @@ When your math is correct, monthlyRate will equal 1073.64
 If your name is `Oscar` mortgageCalculator() should return "Oscar, your monthly rate is 1073.64"
 */
 
+let mortgageCalculator = function(name, monthlyRate){
+    console.log(`${name}, your monthly rate is ${monthlyRate}`)
+}
 
-
-
+mortgageCalculator(name, monthlyRate);
 
 // 🏡 Task 4: Arguments and Parameters
 /* Substitute the variables in your functions for parameters such that you can substitute `P`, `I`, and `N` when you call the function.
@@ -56,8 +65,13 @@ For example,
 mortgageCalculator(200000, 0.05, 30); <-- should return 1,073.64
 */
 
+let mortgageCalculatorTwo = function(p, i, n){
+    let m = i / 12; 
+    let o = n * 12; 
+    return(Math.round(p * (m * Math.pow(1 + m, o)) / (Math.pow(1 + m, o) - 1) * 100) / 100);
+}
 
-
+console.log(mortgageCalculatorTwo(200000, 0.05, 30));
 
 
 // 🏡 Task 5: Conditionals
@@ -68,7 +82,21 @@ Then, add control flow within your function such that IF creditScore is above 74
 Hint: To drop an interest rate by 5% you can take monthlyRate and multiply it by 0.95. Similarly, to increase an interest rate by 5% you'd do monthlyRate * 1.05. 
 */
 
-
+let mortgageCalculatorThree = function(p, i, n, c){
+    if(c > 740){
+        i = (i * 0.95);
+    }else if(c < 660){
+        i = (i *1.05);
+    }else if(c >= 660 && c <= 740){
+        i = i;
+    }else{
+        console.log("Error with credit score")
+    }
+    let m = i / 12; 
+    let o = n * 12;
+    return(Math.round((p * (m * Math.pow(1 + m, o)) / (Math.pow(1 + m, o) - 1)) * 100)/100);
+}
+console.log(mortgageCalculatorThree(200000, 0.05, 30, 730));
 
 
 // 🏡 Task 6: Loops
@@ -87,8 +115,19 @@ For example, variableInterestRate(200000, 0.04, 30) should console.log:
 "{Name}, with an interest rate of 0.06, your monthly rate is $1199"
 */
 
+let p;
+let i;
+let n;
 
-
+const variableInterestRate = function(p, i, n){
+    i = (i - .02);
+    let rate = mortgageCalculatorTwo( p, i, n);
+    for(let range = 0; range < 10; range++){
+        rate = (Math.round(mortgageCalculatorTwo( p, i, n)));
+        console.log(`${name}, with an interest rate of ${i}, your monthly rate is $${rate}`);
+        i = (Math.round((i + 0.005) *1000) / 1000);
+}}
+variableInterestRate(200000, 0.04, 30);
 
 // 🌟🌟🌟 STRETCH 🌟🌟🌟//
 
