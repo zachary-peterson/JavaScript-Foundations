@@ -68,7 +68,7 @@ mortgageCalculator(200000, 0.05, 30); <-- should return 1,073.64
 let mortgageCalculatorTwo = function(p, i, n){
     let m = i / 12; 
     let o = n * 12; 
-    console.log(Math.round(p * (m * Math.pow(1 + m, o)) / (Math.pow(1 + m, o) - 1) * 100) / 100);
+    return(Math.round(p * (m * Math.pow(1 + m, o)) / (Math.pow(1 + m, o) - 1) * 100) / 100);
 }
 
 mortgageCalculatorTwo(200000, 0.05, 30);
@@ -84,11 +84,11 @@ Hint: To drop an interest rate by 5% you can take monthlyRate and multiply it by
 
 let mortgageCalculatorThree = function(p, i, n, c){
     if(c > 740){
-        i = (i * 0.95)
+        i = (i * 0.95);
     }else if(c < 660){
-        i = (i *1.05)
+        i = (i *1.05);
     }else if(c >= 660 && c <= 740){
-        i = i
+        i = i;
     }else{
         console.log("Error with credit score")
     }
@@ -115,13 +115,17 @@ For example, variableInterestRate(200000, 0.04, 30) should console.log:
 "{Name}, with an interest rate of 0.06, your monthly rate is $1199"
 */
 
-let variableInterestRate = function(p, i, n){
+let p;
+let i;
+let n;
+
+const variableInterestRate = function(p, i, n){
     i = (i - .02);
-    let rate;
+    let rate = mortgageCalculatorTwo( p, i, n);
     for(let range = 0; range < 10; range++){
-        rate = (mortgageCalculatorTwo( p, i, n));
-        console.log(name + ", with an interest rate of " + i + ", your monthly rate is $" + rate);
-        i = (i + 0.005);
+        rate = (Math.round(mortgageCalculatorTwo( p, i, n)));
+        console.log(name + ", with an interest rate of " + i + ", your monthly rate is " + rate);
+        i = (Math.round((i + 0.005) *1000) / 1000);
 }}
 console.log(variableInterestRate(200000, 0.04, 30));
 
